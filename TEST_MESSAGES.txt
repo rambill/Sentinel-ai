@@ -1,0 +1,236 @@
+=================================================================
+SENTINELAI - TEST MESSAGES FOR VERIFICATION
+=================================================================
+
+Copy and paste these messages into the "Analyze Text" page to test
+the detection system. Each message is labeled with its expected
+threat level and confidence range.
+
+=================================================================
+🔴 HIGH RISK MESSAGES (Should show 70%+ confidence)
+=================================================================
+
+TEST 1 - Bank Account Phishing
+-------------------------------
+URGENT: Your bank account has been suspended due to suspicious activity! Click here immediately to verify your identity: http://bit.ly/verify-now or your account will be permanently closed within 24 hours. Enter your credit card details to confirm.
+
+Expected: HIGH risk, 90-99% confidence
+Indicators: Urgency, threats, financial, suspicious URL
+
+
+TEST 2 - Lottery Scam
+----------------------
+CONGRATULATIONS! You've won $1,000,000 in the international lottery! Act now to claim your prize. Send processing fee of $500 via wire transfer immediately. Limited time offer expires today! Call now: +1-555-SCAM
+
+Expected: HIGH risk, 90-99% confidence
+Indicators: Urgency, financial lures, pressure tactics
+
+
+TEST 3 - PayPal Impersonation
+------------------------------
+FINAL NOTICE: Unauthorized access detected on your PayPal account. Immediate action required! Your account will be terminated in 48 hours. Click this link to reset password and update payment information: https://paypal-security.tk/verify
+
+Expected: HIGH risk, 90-99% confidence
+Indicators: Threats, impersonation, suspicious TLD, urgency
+
+
+TEST 4 - Netflix Scam
+---------------------
+Your Netflix subscription has been suspended. Update your payment method immediately at http://netflix-billing.xyz/update or lose access to your account. Act now to avoid service interruption!
+
+Expected: HIGH risk, 85-95% confidence
+Indicators: Impersonation, threats, suspicious TLD, urgency
+
+
+TEST 5 - IRS Scam
+-----------------
+URGENT: IRS FINAL NOTICE. You owe $5,432 in back taxes. Failure to pay within 24 hours will result in arrest warrant. Call immediately: 1-800-FAKE-IRS. Wire payment to avoid legal action.
+
+Expected: HIGH risk, 95-99% confidence
+Indicators: Impersonation, threats, urgency, financial, fear tactics
+
+
+TEST 6 - Amazon Phishing
+------------------------
+Amazon Security Alert: We detected unusual activity on your account. Verify your identity within 12 hours or your account will be locked. Click here: http://amaz0n-secure.tk/verify to update your payment information.
+
+Expected: HIGH risk, 90-99% confidence
+Indicators: Impersonation, urgency, threats, lookalike domain
+
+
+TEST 7 - Crypto Scam
+--------------------
+LIMITED TIME: Send 0.5 Bitcoin to claim your 5 BTC prize! This is a one-time opportunity. Act now before slots fill up. Transfer to: 1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa. Don't miss out!
+
+Expected: HIGH risk, 85-95% confidence
+Indicators: Financial, urgency, cryptocurrency, pressure
+
+
+=================================================================
+🟡 MEDIUM RISK MESSAGES (Should show 40-69% confidence)
+=================================================================
+
+TEST 8 - Account Verification
+------------------------------
+Hello, we noticed unusual activity on your account. Please verify your information at your earliest convenience by visiting our website. Contact customer support if you have questions.
+
+Expected: MEDIUM risk, 50-60% confidence
+Indicators: Mild threats, verification request
+
+
+TEST 9 - Marketing Pressure
+----------------------------
+Limited time offer! Get 50% off your next purchase. Click here to claim your discount before it expires. Don't miss out on this exclusive deal.
+
+Expected: MEDIUM risk, 60-75% confidence
+Indicators: Urgency, pressure tactics
+
+
+TEST 10 - Soft Verification
+----------------------------
+We need to verify your email address. Please click the link below to confirm your account. This is a one-time verification for security purposes.
+
+Expected: MEDIUM risk, 45-55% confidence
+Indicators: Verification request, action required
+
+
+TEST 11 - Survey Request
+-------------------------
+You've been selected for our customer satisfaction survey! Complete it now to enter a drawing for a $100 gift card. Survey closes in 48 hours. Click here to participate.
+
+Expected: MEDIUM risk, 50-60% confidence
+Indicators: Prize mention, urgency, action request
+
+
+=================================================================
+🟢 LOW RISK MESSAGES (Should show <40% confidence)
+=================================================================
+
+TEST 12 - Professional Email
+-----------------------------
+Hi John, thanks for your email yesterday. I've reviewed the project proposal and it looks great. Let's schedule a meeting next week to discuss the timeline. Looking forward to working with you.
+
+Expected: LOW risk, 15-25% confidence
+Indicators: None (legitimate communication)
+
+
+TEST 13 - Order Confirmation
+-----------------------------
+Your order #12345 has been shipped and will arrive in 3-5 business days. You can track your package using the tracking number provided in your confirmation email. Thank you for your purchase.
+
+Expected: LOW risk, 15-25% confidence
+Indicators: None (legitimate notification)
+
+
+TEST 14 - Casual Conversation
+------------------------------
+Hey! How was your weekend? I went hiking with some friends and the weather was perfect. We should plan a trip together sometime. Let me know when you're free!
+
+Expected: LOW risk, 25-35% confidence
+Indicators: None (personal message)
+
+
+TEST 15 - Meeting Reminder
+---------------------------
+Reminder: Team meeting tomorrow at 2 PM in Conference Room B. Please bring your project updates. See you there!
+
+Expected: LOW risk, 10-20% confidence
+Indicators: None (work communication)
+
+
+TEST 16 - Thank You Note
+-------------------------
+Thank you so much for your help with the presentation yesterday. Your insights were really valuable and helped us close the deal. I appreciate your support!
+
+Expected: LOW risk, 10-20% confidence
+Indicators: None (gratitude message)
+
+
+TEST 17 - Event Invitation
+---------------------------
+You're invited to our annual company picnic on Saturday, June 15th at Central Park. Bring your family! RSVP by June 1st. Hope to see you there!
+
+Expected: LOW risk, 15-25% confidence
+Indicators: None (legitimate invitation)
+
+
+=================================================================
+🧪 EDGE CASES & SPECIAL TESTS
+=================================================================
+
+TEST 18 - AI-Generated Text
+----------------------------
+As an AI language model, I must inform you that it's important to note that various factors contribute to this situation. In conclusion, I cannot provide personal opinions, but I can summarize the key points for your consideration.
+
+Expected: MEDIUM risk, 40-50% confidence
+Indicators: AI-generated patterns detected
+
+
+TEST 19 - Mixed Signals
+------------------------
+Hi! Your Amazon order is ready for pickup. However, we need you to verify your payment method urgently. Click here within 24 hours: http://bit.ly/amazon-verify
+
+Expected: HIGH risk, 75-85% confidence
+Indicators: Legitimate start, but urgency + suspicious URL
+
+
+TEST 20 - Legitimate Urgent
+----------------------------
+URGENT: Server maintenance scheduled for tonight at 11 PM. Please save your work and log out by 10:45 PM. Downtime expected: 2 hours. Contact IT if you have questions.
+
+Expected: LOW-MEDIUM risk, 30-45% confidence
+Indicators: Urgency (but legitimate context)
+
+
+=================================================================
+📊 TESTING CHECKLIST
+=================================================================
+
+✅ Test at least 3 HIGH risk messages
+✅ Test at least 2 MEDIUM risk messages  
+✅ Test at least 3 LOW risk messages
+✅ Verify confidence scores match expectations
+✅ Check that indicators are relevant
+✅ Confirm recommendations are appropriate
+✅ Test with your own real-world examples
+
+=================================================================
+🎯 EXPECTED RESULTS
+=================================================================
+
+HIGH RISK:
+- Confidence: 70-99%
+- Threat Level: HIGH
+- Indicators: Multiple red flags
+- Recommendation: Do NOT click, delete immediately
+
+MEDIUM RISK:
+- Confidence: 40-69%
+- Threat Level: MEDIUM
+- Indicators: Some suspicious elements
+- Recommendation: Exercise caution, verify sender
+
+LOW RISK:
+- Confidence: 0-39%
+- Threat Level: LOW
+- Indicators: No significant red flags
+- Recommendation: Appears safe, but stay vigilant
+
+=================================================================
+💡 TIPS FOR TESTING
+=================================================================
+
+1. Copy the ENTIRE message including all text
+2. Paste into the "Analyze Text" page
+3. Click "Analyze Message"
+4. Wait 1-2 seconds for AI analysis
+5. Review the confidence score and indicators
+6. Compare with expected results above
+
+If results don't match expectations:
+- Check that you copied the complete message
+- Ensure backend is running (port 8000)
+- Verify no network errors in browser console
+- Try refreshing the page and testing again
+
+=================================================================

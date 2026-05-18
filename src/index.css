@@ -1,0 +1,564 @@
+@import "tailwindcss";
+
+/* ============================================
+   FUTURISTIC CYBERSECURITY THEME
+   Based on exact design specification
+   ============================================ */
+
+/* Dark Mode - Futuristic Cybersecurity */
+:root.dark {
+  --bg-primary: #0B1120;
+  --bg-secondary: #111827;
+  --bg-card: rgba(17, 24, 39, 0.4);
+  --border-color: #1F2937;
+  --glass-border: rgba(59, 130, 246, 0.2);
+  
+  --accent-primary: #3B82F6;
+  --accent-secondary: #8B5CF6;
+  --success: #10B981;
+  --danger: #EF4444;
+  
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  
+  --gradient-bg: radial-gradient(ellipse at top, #1E1B4B 0%, #0B1120 50%, #000000 100%);
+  --gradient-button: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+  
+  --neon-blue: #3B82F6;
+  --neon-purple: #8B5CF6;
+  --neon-glow: 0 0 10px rgba(59, 130, 246, 0.3), 0 0 20px rgba(59, 130, 246, 0.15);
+}
+
+/* Light Mode - Clean Intelligence */
+:root.light {
+  --bg-primary: #F9FAFC;
+  --bg-secondary: #FFFFFF;
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --border-color: #E2E8F0;
+  --glass-border: rgba(37, 99, 235, 0.2);
+  
+  --accent-primary: #2563EB;
+  --accent-secondary: #7C3AED;
+  --success: #10B981;
+  --danger: #EF4444;
+  
+  --text-primary: #0F172A;
+  --text-secondary: #64748B;
+  
+  --gradient-bg: linear-gradient(135deg, #F9FAFC 0%, #EFF6FF 50%, #FFFFFF 100%);
+  --gradient-button: linear-gradient(90deg, #2563EB 0%, #7C3AED 100%);
+  
+  --neon-blue: #2563EB;
+  --neon-purple: #7C3AED;
+  --neon-glow: 0 4px 20px rgba(37, 99, 235, 0.3);
+}
+
+/* Default to dark mode */
+:root {
+  --bg-primary: #0B1120;
+  --bg-secondary: #111827;
+  --bg-card: rgba(17, 24, 39, 0.75);
+  --border-color: #1F2937;
+  --glass-border: rgba(255, 255, 255, 0.08);
+  
+  --accent-primary: #3B82F6;
+  --accent-secondary: #8B5CF6;
+  --success: #10B981;
+  --danger: #EF4444;
+  
+  --text-primary: #F9FAFB;
+  --text-secondary: #9CA3AF;
+  
+  --gradient-bg: linear-gradient(135deg, #0B1120 0%, #111827 40%, #1E1B4B 100%);
+  --gradient-button: linear-gradient(90deg, #3B82F6 0%, #8B5CF6 100%);
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Inter', 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden;
+}
+
+/* Futuristic background with radial gradient and particles */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-bg);
+  z-index: -2;
+  transition: background 0.3s ease;
+}
+
+/* Animated particles background */
+body::after {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Dark mode - glowing particles */
+.dark body::after {
+  background-image: 
+    radial-gradient(2px 2px at 20% 30%, rgba(59, 130, 246, 0.3), transparent),
+    radial-gradient(2px 2px at 60% 70%, rgba(139, 92, 246, 0.3), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(59, 130, 246, 0.2), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(139, 92, 246, 0.2), transparent),
+    radial-gradient(2px 2px at 90% 60%, rgba(59, 130, 246, 0.3), transparent),
+    radial-gradient(1px 1px at 33% 80%, rgba(139, 92, 246, 0.2), transparent);
+  background-size: 200% 200%;
+  animation: particles 20s ease-in-out infinite;
+}
+
+/* Light mode - subtle dots */
+.light body::after {
+  background-image: 
+    radial-gradient(1px 1px at 20% 30%, rgba(37, 99, 235, 0.15), transparent),
+    radial-gradient(1px 1px at 60% 70%, rgba(124, 58, 237, 0.15), transparent),
+    radial-gradient(1px 1px at 50% 50%, rgba(37, 99, 235, 0.1), transparent),
+    radial-gradient(1px 1px at 80% 10%, rgba(124, 58, 237, 0.1), transparent),
+    radial-gradient(1px 1px at 90% 60%, rgba(37, 99, 235, 0.15), transparent),
+    radial-gradient(1px 1px at 33% 80%, rgba(124, 58, 237, 0.1), transparent);
+  background-size: 200% 200%;
+  animation: particles 20s ease-in-out infinite;
+}
+
+@keyframes particles {
+  0%, 100% {
+    background-position: 0% 0%, 100% 100%, 50% 50%, 80% 10%, 90% 60%, 33% 80%;
+  }
+  50% {
+    background-position: 100% 100%, 0% 0%, 25% 75%, 70% 20%, 85% 70%, 40% 90%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.5rem;
+  height: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--border-color);
+  border-radius: 9999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: var(--accent-primary);
+}
+
+/* ============================================
+   FUTURISTIC GLASSMORPHISM EFFECTS
+   ============================================ */
+
+.glass {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-hover {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-hover:hover {
+  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Light mode glass effects */
+.light .glass {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  box-shadow: 
+    0 4px 20px rgba(37, 99, 235, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.light .glass-hover {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  box-shadow: 
+    0 4px 20px rgba(37, 99, 235, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.light .glass-hover:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 
+    0 8px 30px rgba(37, 99, 235, 0.15),
+    0 4px 15px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   FUTURISTIC BUTTON STYLES
+   ============================================ */
+
+.btn-primary {
+  padding: 0.75rem 2rem;
+  background: var(--gradient-button);
+  color: white;
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(59, 130, 246, 0.2);
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(59, 130, 246, 0.3);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s ease;
+}
+
+.btn-primary:hover::before {
+  left: 100%;
+}
+
+.btn-primary:hover {
+  box-shadow: 
+    0 6px 20px rgba(0, 0, 0, 0.4),
+    0 0 25px rgba(59, 130, 246, 0.3);
+  transform: translateY(-2px);
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.btn-primary:active {
+  transform: scale(0.98) translateY(0);
+}
+
+/* Light mode button styles */
+.light .btn-primary {
+  box-shadow: 
+    0 4px 20px rgba(37, 99, 235, 0.3),
+    0 2px 10px rgba(124, 58, 237, 0.2);
+  border: 1px solid rgba(37, 99, 235, 0.3);
+}
+
+.light .btn-primary:hover {
+  box-shadow: 
+    0 6px 30px rgba(37, 99, 235, 0.4),
+    0 4px 15px rgba(124, 58, 237, 0.3);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  padding: 0.75rem 1.5rem;
+  background: var(--bg-card);
+  backdrop-filter: blur(48px);
+  border: 1px solid var(--glass-border);
+  color: var(--text-primary);
+  font-weight: 600;
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+  transform: translateY(-2px);
+}
+
+.btn-secondary:active {
+  transform: scale(0.98) translateY(0);
+}
+
+/* ============================================
+   FUTURISTIC INPUT STYLES
+   ============================================ */
+
+.input-field {
+  width: 100%;
+  padding: 0.875rem 1rem;
+  background: rgba(17, 24, 39, 0.6);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(59, 130, 246, 0.2);
+  border-radius: 0.75rem;
+  transition: all 0.3s ease;
+  outline: none;
+  color: var(--text-primary);
+  font-size: 0.95rem;
+}
+
+.input-field::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.6;
+}
+
+.input-field:focus::placeholder {
+  opacity: 0.4;
+}
+
+.input-field:focus {
+  border-color: rgba(59, 130, 246, 0.5);
+  box-shadow: 
+    0 0 0 3px rgba(59, 130, 246, 0.1),
+    0 4px 15px rgba(0, 0, 0, 0.2);
+  background: rgba(17, 24, 39, 0.8);
+}
+
+/* Light mode input styles */
+.light .input-field {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  color: var(--text-primary);
+}
+
+.light .input-field:focus {
+  border-color: rgba(37, 99, 235, 0.5);
+  box-shadow: 
+    0 0 0 3px rgba(37, 99, 235, 0.1),
+    0 4px 15px rgba(37, 99, 235, 0.1);
+  background: rgba(255, 255, 255, 1);
+}
+
+/* ============================================
+   FUTURISTIC CARD STYLES
+   ============================================ */
+
+.card {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card-hover {
+  background: var(--bg-card);
+  backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 1rem;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  box-shadow: 
+    0 4px 15px rgba(0, 0, 0, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+}
+
+.card-hover:hover {
+  background: rgba(59, 130, 246, 0.05);
+  border-color: rgba(59, 130, 246, 0.4);
+  box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.3),
+    0 0 20px rgba(59, 130, 246, 0.15);
+  transform: translateY(-2px);
+}
+
+/* Light mode card styles */
+.light .card {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  box-shadow: 
+    0 4px 20px rgba(37, 99, 235, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.light .card-hover {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  box-shadow: 
+    0 4px 20px rgba(37, 99, 235, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.light .card-hover:hover {
+  background: rgba(255, 255, 255, 1);
+  border-color: rgba(37, 99, 235, 0.3);
+  box-shadow: 
+    0 8px 30px rgba(37, 99, 235, 0.15),
+    0 4px 15px rgba(124, 58, 237, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   GRADIENT TEXT
+   ============================================ */
+
+.gradient-text {
+  background: linear-gradient(to right, var(--accent-primary), var(--accent-secondary));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  font-weight: 700;
+}
+
+/* ============================================
+   NEON GLOW EFFECTS
+   ============================================ */
+
+.shadow-glow {
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(59, 130, 246, 0.25);
+}
+
+.light .shadow-glow {
+  box-shadow: 0 10px 30px rgba(37, 99, 235, 0.3);
+}
+
+.cyber-border {
+  border: 1px solid rgba(59, 130, 246, 0.4);
+  box-shadow: 
+    0 0 15px rgba(59, 130, 246, 0.2),
+    inset 0 0 10px rgba(59, 130, 246, 0.05);
+}
+
+.neon-text {
+  color: var(--neon-blue);
+  text-shadow: 
+    0 0 10px rgba(59, 130, 246, 0.5),
+    0 0 20px rgba(59, 130, 246, 0.25);
+}
+
+/* Light mode neon text - less glow, more solid */
+.light .neon-text {
+  color: var(--neon-blue);
+  text-shadow: 
+    0 2px 10px rgba(37, 99, 235, 0.3),
+    0 1px 5px rgba(37, 99, 235, 0.2);
+}
+
+.neon-glow-blue {
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(59, 130, 246, 0.3);
+}
+
+/* Light mode glow effects */
+.light .neon-glow-blue {
+  box-shadow: 
+    0 4px 20px rgba(37, 99, 235, 0.3),
+    0 2px 10px rgba(37, 99, 235, 0.2);
+}
+
+.neon-glow-purple {
+  box-shadow: 
+    0 4px 20px rgba(0, 0, 0, 0.3),
+    0 0 15px rgba(139, 92, 246, 0.3);
+}
+
+.light .neon-glow-purple {
+  box-shadow: 
+    0 4px 20px rgba(124, 58, 237, 0.3),
+    0 2px 10px rgba(124, 58, 237, 0.2);
+}
+
+/* ============================================
+   FLOATING PARTICLES (DARK MODE ONLY)
+   ============================================ */
+
+.dark .floating-particles {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================
+   SECTION CONTAINER
+   ============================================ */
+
+.section-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+@media (min-width: 640px) {
+  .section-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ============================================
+   ANIMATIONS
+   ============================================ */
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6), 0 0 60px rgba(139, 92, 246, 0.4);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.animate-glow-pulse {
+  animation: glow-pulse 2s ease-in-out infinite;
+}
