@@ -4,11 +4,32 @@ Detects: Phishing, Scams, AI-generated text, Spam
 """
 import re
 import nltk
-from textblob import TextBlob
-from langdetect import detect, LangDetectException
 from typing import Dict, List, Tuple
-import validators
-import tldextract
+
+# Optional imports - gracefully handle if not available
+try:
+    from textblob import TextBlob
+    TEXTBLOB_AVAILABLE = True
+except ImportError:
+    TEXTBLOB_AVAILABLE = False
+
+try:
+    from langdetect import detect, LangDetectException
+    LANGDETECT_AVAILABLE = True
+except ImportError:
+    LANGDETECT_AVAILABLE = False
+
+try:
+    import validators
+    VALIDATORS_AVAILABLE = True
+except ImportError:
+    VALIDATORS_AVAILABLE = False
+
+try:
+    import tldextract
+    TLDEXTRACT_AVAILABLE = True
+except ImportError:
+    TLDEXTRACT_AVAILABLE = False
 
 # Download required NLTK data
 try:
@@ -250,6 +271,9 @@ class TextScamDetector:
     
     def _analyze_grammar(self, text: str) -> float:
         """Analyze grammar and spelling quality"""
+        if not TEXTBLOB_AVAILABLE:
+            return 0.0  # Skip if textblob not available
+            
         try:
             blob = TextBlob(text)
             
@@ -313,6 +337,9 @@ class TextScamDetector:
     
     def _analyze_sentiment(self, text: str) -> float:
         """Analyze sentiment (fear, urgency)"""
+        if not TEXTBLOB_AVAILABLE:
+            return 0.0  # Skip if textblob not available
+            
         try:
             blob = TextBlob(text)
             polarity = blob.sentiment.polarity

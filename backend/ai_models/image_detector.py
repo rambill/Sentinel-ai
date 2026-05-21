@@ -3,12 +3,28 @@ AI-Powered Image Analysis Module
 Detects: Deepfakes, AI-generated images, Manipulated photos
 """
 import io
-import numpy as np
 from PIL import Image, ImageChops, ImageEnhance, ExifTags
-import cv2
-import imagehash
 from typing import Dict, List, Tuple
 from datetime import datetime
+
+# Optional imports - gracefully handle if not available
+try:
+    import numpy as np
+    NUMPY_AVAILABLE = True
+except ImportError:
+    NUMPY_AVAILABLE = False
+
+try:
+    import cv2
+    CV2_AVAILABLE = True
+except ImportError:
+    CV2_AVAILABLE = False
+
+try:
+    import imagehash
+    IMAGEHASH_AVAILABLE = True
+except ImportError:
+    IMAGEHASH_AVAILABLE = False
 
 
 class ImageDeepfakeDetector:
@@ -149,6 +165,9 @@ class ImageDeepfakeDetector:
     
     def _analyze_compression(self, image: Image.Image) -> float:
         """Analyze compression artifacts"""
+        if not NUMPY_AVAILABLE:
+            return 0.5  # Return minimal score if numpy not available
+            
         score = 0.0
         
         try:
@@ -185,6 +204,9 @@ class ImageDeepfakeDetector:
     
     def _analyze_noise_patterns(self, image: Image.Image) -> float:
         """Analyze noise patterns for inconsistencies"""
+        if not NUMPY_AVAILABLE or not CV2_AVAILABLE:
+            return 0.5  # Return minimal score if dependencies not available
+            
         score = 0.0
         
         try:
@@ -232,6 +254,9 @@ class ImageDeepfakeDetector:
     
     def _analyze_edge_artifacts(self, image: Image.Image) -> float:
         """Detect edge artifacts from manipulation"""
+        if not NUMPY_AVAILABLE or not CV2_AVAILABLE:
+            return 0.5  # Return minimal score if dependencies not available
+            
         score = 0.0
         
         try:
@@ -277,6 +302,9 @@ class ImageDeepfakeDetector:
     
     def _analyze_color_distribution(self, image: Image.Image) -> float:
         """Analyze color distribution for anomalies"""
+        if not NUMPY_AVAILABLE:
+            return 0.5  # Return minimal score if numpy not available
+            
         score = 0.0
         
         try:
@@ -310,6 +338,9 @@ class ImageDeepfakeDetector:
     
     def _analyze_frequency_domain(self, image: Image.Image) -> float:
         """Analyze frequency domain for manipulation signs"""
+        if not NUMPY_AVAILABLE or not CV2_AVAILABLE:
+            return 0.5  # Return minimal score if dependencies not available
+            
         score = 0.0
         
         try:
@@ -355,6 +386,9 @@ class ImageDeepfakeDetector:
     
     def _analyze_face_symmetry(self, image: Image.Image) -> float:
         """Analyze facial symmetry for deepfake detection"""
+        if not NUMPY_AVAILABLE or not CV2_AVAILABLE:
+            return 0.0  # Skip face detection if dependencies not available
+            
         score = 0.0
         
         try:
