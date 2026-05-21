@@ -1,24 +1,21 @@
 fastapi==0.115.0
 uvicorn[standard]==0.32.0
 python-multipart==0.0.12
-pydantic==2.9.2
-pydantic-settings==2.6.1
+pydantic==2.8.2
+pydantic-settings==2.4.0
 python-dotenv==1.0.1
-requests==2.34.0
+requests==2.32.3
 
 # Authentication & Security
 python-jose[cryptography]==3.3.0
 
 # Database
-supabase==2.11.0
-postgrest==0.18.0
+supabase==2.7.4
+postgrest==0.16.11
 
-# AI/ML Libraries - Using latest compatible versions
-transformers>=4.46.0
-torch>=2.9.0
-torchvision>=0.20.1
-pillow>=11.0.0
-numpy>=1.24.0
+# AI/ML Libraries - Minimal set for deployment
+pillow>=10.0.0
+numpy>=1.24.0,<2.0.0
 opencv-python-headless>=4.8.0
 
 # NLP & Text Analysis
@@ -27,14 +24,10 @@ textblob>=0.18.0
 langdetect>=1.0.9
 
 # Image Analysis
-scikit-image>=0.22.0
 imagehash>=4.3.0
-scipy>=1.11.0
 
 # API Integrations
 aiohttp>=3.9.0
-python-whois>=0.9.0
 
 # Utilities
 validators>=0.22.0
-tldextract>=5.0.0
