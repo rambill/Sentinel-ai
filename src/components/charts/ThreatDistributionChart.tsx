@@ -46,14 +46,14 @@ export const ThreatDistributionChart = ({ data }: ThreatDistributionChartProps) 
             cx="50%"
             cy="50%"
             labelLine={false}
-            label={({ name, percent }) => `${name}: ${(percent * 100).toFixed(0)}%`}
+            label={({ name, percent }) => `${name}: ${((percent || 0) * 100).toFixed(0)}%`}
             outerRadius={80}
             fill="#8884d8"
             dataKey="value"
             animationBegin={0}
             animationDuration={800}
           >
-            {chartData.map((entry, index) => (
+            {chartData.map((_entry, index) => (
               <Cell key={`cell-${index}`} fill={COLORS[index % COLORS.length]} />
             ))}
           </Pie>
@@ -62,7 +62,7 @@ export const ThreatDistributionChart = ({ data }: ThreatDistributionChartProps) 
             verticalAlign="bottom"
             height={36}
             iconType="circle"
-            formatter={(value, entry: any) => (
+            formatter={(value, _entry: any) => (
               <span className="text-slate-300 text-sm">{value}</span>
             )}
           />
