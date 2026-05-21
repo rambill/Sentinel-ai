@@ -22,8 +22,9 @@ app.add_middleware(
     allow_origins=[
         "http://localhost:5173",
         "http://localhost:3000",
+        "https://sentinel-ai-5nj4.onrender.com",
         "https://sentinelai-frontend.onrender.com",
-        "https://*.onrender.com"
+        "https://sentinel-ai-backend-mfju.onrender.com"
     ],
     allow_credentials=True,
     allow_methods=["*"],
